@@ -30,10 +30,15 @@ export class DurableObject {
             // Reset the timeout with each ping by the client,
             // meaning it is still there and we shouldn't disconnect it.
             await ws.updateTimeout();
+
+            // The workaround here would be to trigger the DO's fetch() each time a listener gets triggered,
+            // but that would trigger one DO request for each message received.
+            await this.fetch(new Request('http://durable'));
         });
 
         ws.connection.addEventListener('close', async () => {
             this.sockets.delete(ws.id);
+            await this.fetch(new Request('http://durable'));
         });
 
         this.sockets.set(ws.id, ws);
