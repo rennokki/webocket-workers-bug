@@ -22,18 +22,19 @@ new Vue({
         this.websocket = new WebSocket('wss://your.worker.');
 
         this.websocket.addEventListener('open', event => {
-            this.messages.push(event);
+            this.messages.push('Opened');
         });
 
         this.websocket.addEventListener('message', event => {
-            this.messages.push(event);
+            this.messages.push(event.data);
         });
 
         this.websocket.addEventListener('close', () => {
-            this.messages.push({ closed: true });
+            this.messages.push('Closed');
         })
 
         setInterval(() => {
+            this.messages.push('Sent ping.');
             this.websocket.send('Ping');
         }, 30 * 1000);
     },
