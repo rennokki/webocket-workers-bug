@@ -4,7 +4,9 @@ Workers Bug
 This app demonstrates the buggy interaction between the Durable Object and existing WS connections.
 
 When a new WS connection occurs, the DO gets called and is instantiated, accepts the new WS connection, then sets event handlers.
+
 The websocket connection has, DO-side, a `pong` response to the periodically `ping` issued by the client every 30 seconds.
+
 However, these `ping` and `pong` messages issued by both WebSockets (client and server) do not call the `.fetch()` method, and after a while, the DO stops, while the connection still persists, making it still be ping-pong-ing even if the DO is closed.
 
 ## 🚀 Installation
@@ -13,7 +15,7 @@ However, these `ping` and `pong` messages issued by both WebSockets (client and 
 npm install
 ```
 
-To build the `dist/index.mjs` file`:
+To build the `dist/index.mjs` file:
 
 ```bash
 npm run build
