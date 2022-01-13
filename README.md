@@ -53,4 +53,4 @@ Open the `client.html` file and change the `new Websocket(...)` section to conne
 
 Open the HTML file and you will see the messages: the assigned ID and every 30 seconds, a `Sent ping.` and `Pong` as a separate message.
 
-After around 5 minutes, make a HTTP GET request to the worker address and you will see that even if ping pongs are working, the HTTP returns `{ sockets: 0 }`.
+After around 5 minutes or ~ 10 completed ping-pongs, make a HTTP GET request to the worker address and you will see that even if ping pongs are working, the HTTP returns `{ sockets: 0 }`.
