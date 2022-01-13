@@ -19,7 +19,7 @@ new Vue({
         websocket: null,
     },
     mounted() {
-        this.websocket = new WebSocket('wss://your.worker.');
+        this.websocket = new WebSocket('wss://your.worker.workers.dev');
 
         this.websocket.addEventListener('open', event => {
             this.messages.push('Opened');
