@@ -1,0 +1,30 @@
+name = "workers-bug"
+type = "javascript"
+usage_model = ""
+compatibility_flags = []
+compatibility_date = "2021-11-10"
+workers_dev = true
+route = ""
+zone_id = ""
+
+kv_namespaces = []
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "modules"
+dir = "./dist"
+main = "./index.mjs"
+
+[durable_objects]
+bindings = [
+    { name = "DO", class_name = "DurableObject" }
+]
+
+[miniflare]
+durable_objects_persist = false
+
+[[migrations]]
+tag = "v1"
+new_classes = ["DO"]

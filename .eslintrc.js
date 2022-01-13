@@ -1,0 +1,19 @@
+module.exports = {
+    root: true,
+    env: {
+        browser: true,
+        jest: true,
+        node: true,
+    },
+    parser: "@typescript-eslint/parser",
+    plugins: ["@typescript-eslint"],
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    rules: {
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-extra-semi": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-prototype-builtins": "off",
+        "prefer-const": "off",
+    },
+};

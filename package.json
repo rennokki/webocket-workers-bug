@@ -1,0 +1,41 @@
+{
+  "private": "true",
+  "module": "./dist/index.mjs",
+  "jshintConfig": {
+    "esversion": 9
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.16.0",
+    "@babel/plugin-proposal-function-sent": "^7.16.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.16.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.16.0",
+    "@babel/plugin-transform-object-assign": "^7.16.0",
+    "@cloudflare/workers-types": "^3.3.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.6.0",
+    "jest": "^27.4.6",
+    "miniflare": "^2.0.0",
+    "rollup": "^2.63.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^27.1.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.3"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "npm run build -- -w",
+    "dev": "miniflare ./dist/index.mjs --watch --debug",
+    "lint": "eslint --ext .js,.ts ./src",
+    "prepublish": "npm run build",
+    "test": "jest --detectOpenHandles --forceExit --silent",
+    "test:watch": "npm test -- --watch"
+  }
+}
